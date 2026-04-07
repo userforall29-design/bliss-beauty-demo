@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bliss Beauty Spa & Salon – Rajahmundry</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rose:#c9847a;
+  --rose-dark:#a0635a;
+  --gold:#c8a96e;
+  --cream:#faf7f2;
+  --light:#f3ede4;
+  --dark:#1a1210;
+  --brown:#3d2418;
+  --muted:#9a8070;
+  --white:#ffffff;
+  --border:#e8ddd4;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--brown);font-family:'Montserrat',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--light)}
+::-webkit-scrollbar-thumb{background:var(--rose)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 56px;transition:all .4s}
+nav.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(10px);padding:14px 56px;border-bottom:1px solid var(--border);box-shadow:0 2px 24px rgba(58,30,20,.05)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:1px;color:var(--brown)}
+.logo em{font-style:italic;color:var(--rose)}
+.logo-sub{font-size:9px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:block;margin-top:1px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--brown)}
+.nav-book{background:var(--rose);color:#fff;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;padding:12px 26px;cursor:pointer;transition:.2s}
+.nav-book:hover{background:var(--rose-dark)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;overflow:hidden}
+.hero-left{background:var(--light);display:flex;flex-direction:column;justify-content:center;padding:140px 64px 80px;position:relative}
+.hero-left::after{content:'';position:absolute;top:0;right:-1px;width:60px;height:100%;background:var(--cream);clip-path:polygon(100% 0,100% 100%,0 50%)}
+.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--rose);letter-spacing:2px;margin-bottom:18px;animation:fadeUp .7s ease both}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,82px);font-weight:300;line-height:1.1;color:var(--brown);animation:fadeUp .7s .1s ease both}
+.hero h1 strong{font-weight:600;display:block}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-divider{width:48px;height:1px;background:var(--rose);margin:24px 0;opacity:.6;animation:fadeUp .7s .2s ease both}
+.hero-desc{font-size:14px;color:var(--muted);line-height:1.9;max-width:380px;animation:fadeUp .7s .3s ease both}
+.hero-actions{display:flex;gap:14px;margin-top:32px;animation:fadeUp .7s .4s ease both;flex-wrap:wrap}
+.btn-rose{background:var(--rose);color:#fff;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;padding:14px 32px;cursor:pointer;transition:.2s}
+.btn-rose:hover{background:var(--rose-dark);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--brown);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--brown);padding:13px 32px;cursor:pointer;transition:.2s}
+.btn-outline:hover{background:var(--brown);color:var(--cream);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:40px;border-top:1px solid var(--border);animation:fadeUp .7s .5s ease both;flex-wrap:wrap}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;color:var(--rose);line-height:1}
+.stat-l{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(to left,rgba(26,18,16,.1),transparent)}
+.hero-float{position:absolute;bottom:48px;left:-20px;background:var(--white);padding:20px 28px;box-shadow:0 12px 48px rgba(58,30,20,.12)}
+.hero-float p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--muted);margin-bottom:4px}
+.hero-float strong{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--brown)}
+
+/* RIBBON */
+.ribbon{background:var(--brown);padding:13px 0;text-align:center}
+.ribbon p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--gold);letter-spacing:3px}
+
+/* SECTIONS */
+section{padding:96px 56px}
+.sec-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--rose);margin-bottom:10px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,56px);font-weight:300;line-height:1.1;margin-bottom:8px;color:var(--brown)}
+.sec-title strong{font-weight:600}
+.sec-div{width:40px;height:1px;background:var(--rose);margin:18px 0 44px;opacity:.7}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-header{text-align:center;margin-bottom:64px}
+.services-header .sec-div{margin:18px auto 0}
+.svc-tabs{display:flex;gap:0;justify-content:center;margin-bottom:56px;border-bottom:1px solid var(--border)}
+.svc-tab{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:12px 32px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none;transition:.2s;font-family:'Montserrat',sans-serif}
+.svc-tab.active,.svc-tab:hover{color:var(--rose);border-bottom-color:var(--rose)}
+.svc-grid{display:none;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px}
+.svc-grid.active{display:grid}
+.svc-card{background:var(--cream);padding:36px 28px;border-bottom:3px solid transparent;transition:.3s;cursor:default}
+.svc-card:hover{border-bottom-color:var(--rose);background:var(--light)}
+.svc-icon{font-size:32px;margin-bottom:16px;display:block}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brown);margin-bottom:8px}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.svc-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--rose)}
+.svc-price small{font-size:12px;font-family:'Montserrat',sans-serif;font-weight:400;color:var(--muted)}
+
+/* GALLERY */
+.gallery{padding:0;background:var(--brown)}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:300px 300px;gap:3px}
+.g-item{overflow:hidden;position:relative}
+.g-item:nth-child(1){grid-row:1/3}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.85)}
+.g-item:hover img{transform:scale(1.07);filter:brightness(1)}
+.g-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(to top,rgba(26,18,16,.8),transparent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(250,247,242,.9);opacity:0;transition:opacity .3s}
+.g-item:hover .g-cap{opacity:1}
+
+/* ABOUT */
+.about{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.about-content{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.about-content p{font-family:'Cormorant Garamond',serif;font-size:18px;color:#5a3a2a;line-height:1.9;margin-bottom:16px}
+.about-content p.small{font-size:14px;font-family:'Montserrat',sans-serif;color:var(--muted);line-height:1.8}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.feat{display:flex;gap:12px;align-items:flex-start}
+.feat-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.feat-text strong{display:block;font-size:13px;font-weight:600;color:var(--brown);margin-bottom:2px}
+.feat-text span{font-size:12px;color:var(--muted)}
+.about-img{position:relative;overflow:hidden;min-height:520px}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block}
+.about-float{position:absolute;top:48px;right:-20px;background:var(--rose);color:#fff;padding:20px 24px;text-align:center}
+.about-float-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;line-height:1}
+.about-float-text{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;opacity:.9;margin-top:4px}
+
+/* STYLISTS */
+.stylists{background:var(--white)}
+.stylists-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3px}
+.stylist-card{position:relative;overflow:hidden;height:360px;cursor:pointer}
+.stylist-card img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(15%);transition:.5s}
+.stylist-card:hover img{filter:grayscale(0%);transform:scale(1.04)}
+.stylist-info{position:absolute;bottom:0;left:0;right:0;padding:24px 20px;background:linear-gradient(to top,rgba(26,18,16,.9),transparent)}
+.stylist-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff}
+.stylist-role{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:4px}
+
+/* PACKAGES */
+.packages{background:var(--light)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px}
+.pkg-card{background:var(--white);padding:44px 32px;position:relative;transition:transform .3s}
+.pkg-card:hover{transform:translateY(-4px)}
+.pkg-card.featured{background:var(--brown);color:#fff}
+.pkg-badge{position:absolute;top:-12px;left:32px;background:var(--rose);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.pkg-card.featured .pkg-name{color:rgba(255,255,255,.6)}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;line-height:1;color:var(--brown);margin-bottom:4px}
+.pkg-card.featured .pkg-price{color:#fff}
+.pkg-duration{font-size:12px;color:var(--muted);margin-bottom:28px}
+.pkg-card.featured .pkg-duration{color:rgba(255,255,255,.5)}
+.pkg-list{list-style:none}
+.pkg-list li{font-size:13px;color:var(--muted);padding:9px 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;gap:10px}
+.pkg-card.featured .pkg-list li{color:rgba(255,255,255,.7);border-bottom-color:rgba(255,255,255,.08)}
+.pkg-list li::before{content:'✦';font-size:8px;color:var(--rose);flex-shrink:0}
+.pkg-card.featured .pkg-list li::before{color:var(--gold)}
+.pkg-btn{margin-top:32px;width:100%;padding:13px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;border:none;font-family:'Montserrat',sans-serif}
+.pkg-btn.dark{background:var(--rose);color:#fff}
+.pkg-btn.light{background:var(--cream);color:var(--brown)}
+.pkg-btn:hover{opacity:.85}
+
+/* TIMINGS */
+.timings{background:var(--white)}
+.timings-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:960px;margin:0 auto}
+.timing-row{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--border)}
+.timing-day{font-size:13px;font-weight:500;color:var(--brown)}
+.timing-time{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--muted)}
+.info-box{background:var(--light);border-left:3px solid var(--rose);padding:20px 24px;margin-top:20px;font-size:13px;color:var(--muted);line-height:1.8}
+
+/* BOOKING */
+.booking{background:var(--brown);padding:96px 56px}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.booking-info p{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(250,247,242,.7);line-height:1.9;margin-bottom:24px}
+.booking-detail{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.booking-detail .ico{font-size:18px;flex-shrink:0;margin-top:2px}
+.booking-detail div{font-size:13px;color:rgba(250,247,242,.8)}
+.booking-detail div strong{display:block;font-weight:600;color:#fff;margin-bottom:2px}
+.booking-form{display:flex;flex-direction:column;gap:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-form input,.booking-form select,.booking-form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;padding:13px 16px;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.booking-form input::placeholder,.booking-form textarea::placeholder{color:rgba(255,255,255,.25)}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{border-color:var(--rose)}
+.booking-form select option{background:var(--brown)}
+.booking-form textarea{resize:none;height:80px}
+.book-btn{background:var(--rose);color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;padding:15px;cursor:pointer;transition:.2s}
+.book-btn:hover{background:var(--rose-dark)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:56px 56px 28px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--cream)}
+.footer-logo em{font-style:italic;color:var(--rose)}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(250,247,242,.35);margin-top:6px;margin-bottom:14px}
+.footer-desc{font-size:12px;color:rgba(250,247,242,.25);line-height:1.8;max-width:260px}
+.footer-col h4{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col ul li{font-size:12px;color:rgba(250,247,242,.35);padding:6px 0;cursor:pointer;transition:color .2s}
+.footer-col ul li:hover{color:rgba(250,247,242,.8)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:11px;color:rgba(250,247,242,.2)}
+.footer-bottom strong{color:rgba(250,247,242,.4)}
+
+/* WA */
+.wa{position:fixed;bottom:28px;right:28px;z-index:200;background:#25d366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:transform .2s}
+.wa:hover{transform:scale(1.1)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  nav{padding:14px 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-left{padding:100px 24px 60px}
+  section,.booking,.timings{padding:64px 20px}
+  .about{grid-template-columns:1fr}
+  .about-img{min-height:280px}.about-float{display:none}
+  .about-content{padding:48px 24px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g-item:nth-child(1){grid-row:auto;grid-column:1/3;height:220px}.g-item{height:200px}
+  .timings-inner{grid-template-columns:1fr;gap:40px}
+  .booking-inner{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column}
+  .about-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="wa" href="https://wa.me/919876543210?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Bliss%20Beauty%20Salon" target="_blank">💬</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div>
+    <div class="logo"><em>Bliss</em> Beauty Spa</div>
+    <span class="logo-sub">Salon & Beauty · Rajahmundry</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#booking">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Rajahmundry's Premier Salon since 2007</p>
+    <h1>Look <em>Beautiful,</em><br><strong>Feel Blissful</strong></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Luxury hair, skin, and spa treatments by certified professionals. Your complete beauty destination in Gandhipuram, Rajahmundry.</p>
+    <div class="hero-actions">
+      <button class="btn-rose" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">17+</div><div class="stat-l">Years Experience</div></div>
+      <div><div class="stat-n">50+</div><div class="stat-l">Services Offered</div></div>
+      <div><div class="stat-n">8000+</div><div class="stat-l">Happy Clients</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=900&q=85" alt="Salon" loading="eager">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-float">
+      <p>New Clients Get</p>
+      <strong>20% Off First Visit</strong>
+    </div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <p>Open Daily 9 AM – 8 PM &nbsp;·&nbsp; Walk-ins Welcome &nbsp;·&nbsp; Bridal Packages Available &nbsp;·&nbsp; +91 98765 43210</p>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <p class="sec-eyebrow reveal">What We Offer</p>
+    <h2 class="sec-title reveal">Our <strong>Services</strong></h2>
+    <div class="sec-div reveal"></div>
+  </div>
+  <div class="svc-tabs">
+    <button class="svc-tab active" onclick="switchSvc('hair',this)">Hair</button>
+    <button class="svc-tab" onclick="switchSvc('skin',this)">Skin & Face</button>
+    <button class="svc-tab" onclick="switchSvc('spa',this)">Spa & Body</button>
+    <button class="svc-tab" onclick="switchSvc('nails',this)">Nails & More</button>
+    <button class="svc-tab" onclick="switchSvc('bridal',this)">Bridal</button>
+  </div>
+
+  <!-- HAIR -->
+  <div class="svc-grid active" id="tab-hair">
+    <div class="svc-card reveal"><span class="svc-icon">✂️</span><div class="svc-name">Haircut & Styling</div><p class="svc-desc">Precision cuts for men, women, and kids by expert stylists. Includes wash and blow-dry.</p><div class="svc-price">From ₹150 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌈</span><div class="svc-name">Hair Colouring</div><p class="svc-desc">Global colour, highlights, balayage, ombre — using Loreal, Wella & Schwarzkopf products.</p><div class="svc-price">From ₹800 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">💆</span><div class="svc-name">Hair Spa</div><p class="svc-desc">Deep conditioning treatment to repair damage, add shine, and restore hair health.</p><div class="svc-price">From ₹600 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🔥</span><div class="svc-name">Hair Smoothening</div><p class="svc-desc">Professional smoothening/straightening treatment for frizz-free, silky hair lasting 6+ months.</p><div class="svc-price">From ₹2500 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">💇</span><div class="svc-name">Keratin Treatment</div><p class="svc-desc">Rebuild and strengthen your hair with a keratin protein treatment. Smooth, shiny results.</p><div class="svc-price">From ₹3000 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌿</span><div class="svc-name">Henna & Mehendi</div><p class="svc-desc">Natural henna hair colour and bridal mehendi by skilled artists.</p><div class="svc-price">From ₹300 <small>/ session</small></div></div>
+  </div>
+
+  <!-- SKIN -->
+  <div class="svc-grid" id="tab-skin">
+    <div class="svc-card reveal"><span class="svc-icon">✨</span><div class="svc-name">HydraFacial</div><p class="svc-desc">Advanced facial treatment — deep cleansing, hydration, and glow in one session.</p><div class="svc-price">From ₹1500 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌸</span><div class="svc-name">Snow White Facial</div><p class="svc-desc">Brightening facial for an even skin tone and radiant complexion.</p><div class="svc-price">From ₹800 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🧖</span><div class="svc-name">Clean Up</div><p class="svc-desc">Basic deep pore cleansing facial. Removes dead skin and unclogs pores.</p><div class="svc-price">From ₹400 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🧴</span><div class="svc-name">Bleach & D-Tan</div><p class="svc-desc">Face and full body bleach to lighten skin tone and remove tan lines.</p><div class="svc-price">From ₹250 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🪡</span><div class="svc-name">Threading</div><p class="svc-desc">Eyebrow and upper lip threading for precise, clean shaping.</p><div class="svc-price">From ₹30 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌺</span><div class="svc-name">Waxing</div><p class="svc-desc">Full body waxing using premium cold and hot wax. Smooth and long-lasting results.</p><div class="svc-price">From ₹150 <small>/ session</small></div></div>
+  </div>
+
+  <!-- SPA -->
+  <div class="svc-grid" id="tab-spa">
+    <div class="svc-card reveal"><span class="svc-icon">🛁</span><div class="svc-name">Full Body Massage</div><p class="svc-desc">Relaxing Swedish or deep tissue massage by certified therapists. 60 or 90 minutes.</p><div class="svc-price">From ₹1200 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">💆‍♀️</span><div class="svc-name">Head Massage</div><p class="svc-desc">Traditional Indian head massage with oil — relieves stress and promotes hair growth.</p><div class="svc-price">From ₹350 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🦶</span><div class="svc-name">Foot Spa</div><p class="svc-desc">Relaxing foot soak, scrub, and massage. Goodbye tired feet.</p><div class="svc-price">From ₹500 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌿</span><div class="svc-name">Ayurvedic Spa</div><p class="svc-desc">Authentic Ayurvedic treatments including Abhyanga, Shirodhara, and Udvartana.</p><div class="svc-price">From ₹1800 <small>/ session</small></div></div>
+  </div>
+
+  <!-- NAILS -->
+  <div class="svc-grid" id="tab-nails">
+    <div class="svc-card reveal"><span class="svc-icon">💅</span><div class="svc-name">Manicure</div><p class="svc-desc">Classic or gel manicure with shaping, cuticle care, and your choice of polish.</p><div class="svc-price">From ₹350 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🦶</span><div class="svc-name">Pedicure</div><p class="svc-desc">Full pedicure — soak, scrub, massage, and colour. Feet that feel brand new.</p><div class="svc-price">From ₹450 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🎨</span><div class="svc-name">Nail Art</div><p class="svc-desc">Creative nail art designs — simple patterns to elaborate festival designs.</p><div class="svc-price">From ₹200 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">👂</span><div class="svc-name">Ear Piercing</div><p class="svc-desc">Safe, hygienic ear piercing using sterilized equipment. For all ages.</p><div class="svc-price">₹150 <small>/ session</small></div></div>
+  </div>
+
+  <!-- BRIDAL -->
+  <div class="svc-grid" id="tab-bridal">
+    <div class="svc-card reveal"><span class="svc-icon">👰</span><div class="svc-name">Bridal Makeup</div><p class="svc-desc">Full bridal makeup — traditional Telugu bridal look or modern fusion. HD and airbrush options.</p><div class="svc-price">From ₹8000 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌸</span><div class="svc-name">Bridal Package</div><p class="svc-desc">Complete bridal package: makeup, hair styling, mehendi, facial, manicure, and pedicure.</p><div class="svc-price">From ₹15000 <small>/ package</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🎊</span><div class="svc-name">Party Makeup</div><p class="svc-desc">Makeup for receptions, engagements, birthday parties, and family functions.</p><div class="svc-price">From ₹2500 <small>/ session</small></div></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌿</span><div class="svc-name">Bridal Mehendi</div><p class="svc-desc">Intricate bridal mehendi by experienced artists. Full hands, arms, and feet designs.</p><div class="svc-price">From ₹3000 <small>/ session</small></div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
+  <div class="gallery-grid">
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=80" alt="Salon interior" loading="lazy">
+      <div class="g-cap">Our Beautiful Space</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500&q=80" alt="Hair styling" loading="lazy">
+      <div class="g-cap">Hair Styling</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=500&q=80" alt="Facial" loading="lazy">
+      <div class="g-cap">Skin Treatments</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&q=80" alt="Spa" loading="lazy">
+      <div class="g-cap">Spa & Relaxation</div>
+    </div>
+    <div class="g-item">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&q=80" alt="Nails" loading="lazy">
+      <div class="g-cap">Nail Art</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-content">
+    <p class="sec-eyebrow reveal">Our Story</p>
+    <h2 class="sec-title reveal">A Decade of <strong>Beauty</strong><br>& <em>Confidence</em></h2>
+    <div class="sec-div reveal"></div>
+    <p class="reveal">Since 2007, Bliss Beauty Spa has been Rajahmundry's sanctuary for women, men, and brides who deserve the best. We've grown from a small parlour to a full luxury salon and spa — but our commitment has never changed: make every client leave feeling more beautiful and confident than when they walked in.</p>
+    <p class="small reveal">We use only premium products — Loreal, Schwarzkopf, Wella, OPI, and Lotus. Every stylist is trained and certified. We keep our salon spotlessly clean and hygienic, every single day.</p>
+    <div class="about-features reveal">
+      <div class="feat"><span class="feat-icon">🌿</span><div class="feat-text"><strong>Premium Products</strong><span>Loreal, Wella, OPI, Lotus</span></div></div>
+      <div class="feat"><span class="feat-icon">👩‍🎓</span><div class="feat-text"><strong>Certified Stylists</strong><span>Trained professionals only</span></div></div>
+      <div class="feat"><span class="feat-icon">🧼</span><div class="feat-text"><strong>Hygiene First</strong><span>Sterilized tools, clean space</span></div></div>
+      <div class="feat"><span class="feat-icon">👰</span><div class="feat-text"><strong>Bridal Experts</strong><span>500+ brides served</span></div></div>
+    </div>
+  </div>
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&q=85" alt="Salon" loading="lazy">
+    <div class="about-float">
+      <div class="about-float-num">2007</div>
+      <div class="about-float-text">Est. Rajahmundry</div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLISTS -->
+<section class="stylists" id="team">
+  <div style="margin-bottom:48px;text-align:center">
+    <p class="sec-eyebrow reveal">Meet the Team</p>
+    <h2 class="sec-title reveal">Our <strong>Expert Stylists</strong></h2>
+    <div class="sec-div reveal" style="margin:18px auto 0"></div>
+  </div>
+  <div class="stylists-grid">
+    <div class="stylist-card reveal">
+      <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&q=80" alt="Stylist" loading="lazy">
+      <div class="stylist-info"><div class="stylist-name">Priya Lakshmi</div><div class="stylist-role">Senior Stylist · 10 Yrs</div></div>
+    </div>
+    <div class="stylist-card reveal">
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=80" alt="Stylist" loading="lazy">
+      <div class="stylist-info"><div class="stylist-name">Kavitha Reddy</div><div class="stylist-role">Bridal Makeup Artist · 8 Yrs</div></div>
+    </div>
+    <div class="stylist-card reveal">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80" alt="Stylist" loading="lazy">
+      <div class="stylist-info"><div class="stylist-name">Ramya Devi</div><div class="stylist-role">Spa Therapist · 6 Yrs</div></div>
+    </div>
+    <div class="stylist-card reveal">
+      <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&q=80" alt="Stylist" loading="lazy">
+      <div class="stylist-info"><div class="stylist-name">Sunitha Varma</div><div class="stylist-role">Skin Care Expert · 7 Yrs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div style="text-align:center;margin-bottom:64px">
+    <p class="sec-eyebrow reveal">Special Offers</p>
+    <h2 class="sec-title reveal">Beauty <strong>Packages</strong></h2>
+    <div class="sec-div reveal" style="margin:18px auto 0"></div>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg-card reveal">
+      <div class="pkg-name">Refresh Package</div>
+      <div class="pkg-price">₹999</div>
+      <div class="pkg-duration">~2 hours</div>
+      <ul class="pkg-list">
+        <li>Haircut & Blow Dry</li>
+        <li>Basic Clean Up Facial</li>
+        <li>Eyebrow Threading</li>
+        <li>Head Massage</li>
+      </ul>
+      <button class="pkg-btn dark" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    </div>
+    <div class="pkg-card featured reveal">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Glow Package</div>
+      <div class="pkg-price">₹2499</div>
+      <div class="pkg-duration">~4 hours · Save ₹800</div>
+      <ul class="pkg-list">
+        <li>Haircut & Styling</li>
+        <li>HydraFacial</li>
+        <li>Full Body Waxing</li>
+        <li>Manicure + Pedicure</li>
+        <li>Head Massage + Threading</li>
+      </ul>
+      <button class="pkg-btn light" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    </div>
+    <div class="pkg-card reveal">
+      <div class="pkg-name">Bridal Package</div>
+      <div class="pkg-price">₹15000</div>
+      <div class="pkg-duration">Full Day · Best Value</div>
+      <ul class="pkg-list">
+        <li>HD Bridal Makeup</li>
+        <li>Bridal Hair Styling</li>
+        <li>Full Bridal Mehendi</li>
+        <li>Pre-bridal Facial & Waxing</li>
+        <li>Manicure + Pedicure</li>
+        <li>Complimentary Touch-up</li>
+      </ul>
+      <button class="pkg-btn dark" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- TIMINGS -->
+<section class="timings" id="timings">
+  <div class="timings-inner">
+    <div>
+      <p class="sec-eyebrow reveal">Visit Us</p>
+      <h2 class="sec-title reveal" style="font-size:clamp(28px,4vw,42px)">Opening <strong>Hours</strong></h2>
+      <div class="sec-div reveal"></div>
+      <div class="timing-row"><span class="timing-day">Monday – Saturday</span><span class="timing-time">9:00 AM – 8:00 PM</span></div>
+      <div class="timing-row"><span class="timing-day">Sunday</span><span class="timing-time">9:00 AM – 6:00 PM</span></div>
+      <div class="timing-row"><span class="timing-day">Public Holidays</span><span class="timing-time">10:00 AM – 5:00 PM</span></div>
+      <div class="info-box reveal">
+        💍 <strong style="color:var(--brown)">Bridal bookings</strong> — please call at least 2 weeks in advance. Home visits available for pre-bridal services.
+      </div>
+    </div>
+    <div>
+      <p class="sec-eyebrow reveal">Find Us</p>
+      <h2 class="sec-title reveal" style="font-size:clamp(28px,4vw,42px)">Our <strong>Location</strong></h2>
+      <div class="sec-div reveal"></div>
+      <div class="info-box reveal" style="background:var(--light);border-left-color:var(--rose)">
+        <strong style="font-size:15px;display:block;margin-bottom:8px;color:var(--brown)">Bliss Beauty Spa & Salon</strong>
+        Second Floor, Lalitha Towers,<br>
+        Gandhipuram-1, Prakasam Nagar,<br>
+        Rajahmundry, AP – 533103<br><br>
+        📍 Near Gandhipuram Junction<br>
+        🚗 Parking available below the building
+      </div>
+      <button class="btn-rose" style="margin-top:20px;width:100%" onclick="window.open('https://maps.google.com/?q=Bliss+Beauty+Spa+Rajahmundry','_blank')">Open in Google Maps →</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div>
+      <p class="sec-eyebrow" style="color:var(--gold)">Book an Appointment</p>
+      <h2 class="sec-title light" style="color:#fff;font-size:clamp(30px,4vw,48px)">Reserve Your<br><em style="color:var(--rose)">Beauty Time</em></h2>
+      <div class="sec-div" style="background:var(--rose)"></div>
+      <p class="booking-info">Walk-ins are welcome, but booking ahead ensures your preferred stylist and time slot are available for you.</p>
+      <div class="booking-detail"><span class="ico">📞</span><div><strong>+91 98765 43210</strong>Call or WhatsApp anytime</div></div>
+      <div class="booking-detail"><span class="ico">📍</span><div><strong>Lalitha Towers, Gandhipuram</strong>Rajahmundry, AP – 533103</div></div>
+      <div class="booking-detail"><span class="ico">📸</span><div><strong>@blissbeauty.rjy</strong>Follow us for offers & inspiration</div></div>
+    </div>
+    <div class="booking-form">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name *">
+        <input type="tel" placeholder="Phone Number *">
+      </div>
+      <select>
+        <option value="" disabled selected>Select Service</option>
+        <option>Haircut & Styling</option>
+        <option>Hair Colour / Highlights</option>
+        <option>Hair Spa / Smoothening</option>
+        <option>Facial / Cleanup</option>
+        <option>Full Body Waxing</option>
+        <option>Manicure & Pedicure</option>
+        <option>Spa / Massage</option>
+        <option>Bridal Makeup</option>
+        <option>Party Makeup</option>
+        <option>Bridal Full Package</option>
+        <option>Glow Package</option>
+      </select>
+      <div class="form-row">
+        <input type="date" style="color:rgba(255,255,255,.4)">
+        <select>
+          <option value="" disabled selected>Preferred Time</option>
+          <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+          <option>12:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+          <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+        </select>
+      </div>
+      <textarea placeholder="Any special requests or notes…"></textarea>
+      <button class="book-btn" onclick="alert('✅ Appointment request received! We will confirm your booking within 30 minutes.')">Confirm Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><em>Bliss</em> Beauty Spa</div>
+      <div class="footer-tagline">Look Beautiful, Feel Blissful</div>
+      <div class="footer-desc">Rajahmundry's premier beauty salon & spa since 2007. Hair, skin, spa, nails, and bridal services by certified professionals.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Hair Styling & Colour</li>
+        <li>Facials & Skin Care</li>
+        <li>Spa & Massage</li>
+        <li>Manicure & Pedicure</li>
+        <li>Bridal Makeup</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</li>
+        <li onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Packages</li>
+        <li onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Gallery</li>
+        <li onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Appointment</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Bliss Beauty Spa & Salon, Rajahmundry. All rights reserved.</p>
+    <p>Website by <strong>Your Name Here</strong></p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+function switchSvc(tab,el){
+  document.querySelectorAll('.svc-grid').forEach(g=>g.classList.remove('active'));
+  document.querySelectorAll('.svc-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  el.classList.add('active');
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
